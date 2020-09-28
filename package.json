@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p $PORT",
     "codegen": "apollo client:codegen _graphql/client --target=typescript --includes=components/** --tagName=gql --no-addTypename --globalTypesFile=_graphql/global.ts --endpoint http://localhost:3001/graphql --outputFlat",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
     "test": "jest"
