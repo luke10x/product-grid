@@ -1,0 +1,25 @@
+version: "3.7"
+services:
+  frontend:
+    image: node:14.8
+    volumes:
+      - "./:/mnt/frontend/"
+    working_dir: "/mnt/frontend/"
+    environment:
+      NEXT_PUBLIC_BACKEND_URL: ${BACKEND_URL:-http://localhost:3001/graphql}
+      NEXT_PUBLIC_IMAGE_SERVER_URL: https://asset1.cxnmarksandspencer.com/is/image/mands/
+    entrypoint: "/bin/bash -c"
+    command:
+      - |
+        npm run dev || (\
+          echo "⛔ \`npm run dev\` failed, but the container is running..." && \
+          tail -f /dev/null \
+        )
+    ports:
+      - 3000:3000
+    network_mode: "host"
+
+  backend:
+    image: chrismns/tech-test-mock-server:0.1.0 
+    ports:
+      - 3001:3001
