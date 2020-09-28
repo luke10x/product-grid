@@ -26,7 +26,7 @@ The backend will be running on [localhost:3001/graphql](http://localhost:3001/gr
 
 Backend and image server URLs are configurable through environment variables.
 For example this software has been deployed on:
-[product-grid.herokuapp.com](https://product-grid.herokuapp.com).
+[prod-grid.herokuapp.com](https://prod-grid.herokuapp.com).
 
 ### GraphQL types
 
